@@ -58,6 +58,7 @@ But also in non-interactive mode: (like the Shell project in C)
 
 
 Requirements:
+
       1.Python Scripts
       2.Allowed editors: vi, vim, emacs
       3.All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
