@@ -22,10 +22,10 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
  Your shell should work like this in interactive mode:
  
     $ ./console.py
-   (hbnb) help
+    (hbnb) help
 
-   Documented commands (type help <topic>):
-   ========================================
+    Documented commands (type help <topic>):
+    ========================================
    EOF  help  quit
 
    (hbnb) 
