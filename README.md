@@ -35,25 +35,25 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 
 But also in non-interactive mode: (like the Shell project in C)
 
-   $ echo "help" | ./console.py
-   (hbnb)
+    $ echo "help" | ./console.py
+    (hbnb)
 
-   Documented commands (type help <topic>):
-   ========================================
-   EOF  help  quit
-   (hbnb) 
-   $
-   $ cat test_help
-   help
-   $
-   $ cat test_help | ./console.py
-   (hbnb)
+    Documented commands (type help <topic>):
+    ========================================
+    EOF  help  quit
+    (hbnb) 
+    $
+    $ cat test_help
+    help
+    $
+    $ cat test_help | ./console.py
+    (hbnb)
 
-   Documented commands (type help <topic>):
-   ========================================
-   EOF  help  quit
-   (hbnb) 
-   $
+    Documented commands (type help <topic>):
+    ========================================
+    EOF  help  quit
+    (hbnb) 
+    $
 
 
 Requirements:
