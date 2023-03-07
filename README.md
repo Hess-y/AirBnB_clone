@@ -26,12 +26,12 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 
     Documented commands (type help <topic>):
     ========================================
-   EOF  help  quit
+    EOF  help  quit
 
-   (hbnb) 
-   (hbnb) 
-   (hbnb) quit
-   $
+    (hbnb) 
+    (hbnb) 
+    (hbnb) quit
+    $
 
 But also in non-interactive mode: (like the Shell project in C)
 
