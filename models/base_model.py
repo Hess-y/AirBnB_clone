@@ -1,0 +1,73 @@
+#!/usr/bin/python3
+""" Base module """
+
+
+from datetime import datetime
+import uuid
+from models import storage
+
+
+class BaseModel:
+    """ Base class """
+    id = None
+    created_at = None
+    updated_at = None
+
+    def __init__(self, *Args, **KwArgs):
+        """Initialization of a Base instance.
+        Args:
+            - *args: list of arguments
+            - **kwargs: dict of key-values arguments
+        """
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
+        self.id = str(uuid.uuid4())
+        
+        if kwargs is not None and kwargs != {}:
+            for key in kwargs:
+                if key == "created_at":
+                    self.__dict__["created_at"] = datetime.strptime(
+                        kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                elif key == "updated_at":
+                    self.__dict__["updated_at"] = datetime.strptime(
+                        kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                else:
+                    self.__dict__[key] = kwargs[key]
+                    
+                storage.new(self)
+                
+     def __str__(self):
+        """Returns a human-readable string representation
+        of an instance."""
+        
+         return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id, self.__dict__
+        )
+        
+     def save(self):
+        """
+            Function that updates the public instance attribute updated_at
+            with the current datetime
+        """
+        self.updated_at = datetime.now()
+        storage.save()
+
+    def to_dict(self):
+        """
+            Function that returns a dictionary containing all keys/values
+            of __dict__ of the instance
+        """
+        dict = {}
+
+        for key, value in self.__dict__.items():
+            if not value:
+                continue
+            if key == 'created_at' or key == 'updated_at':
+                dict[key] = value.strftime("%Y-%m-%dT%H:%M:%S.%f")
+            else:
+                dict[key] = value
+
+        dict["__class__"] = self.__class__.__name__
+
+        return dict
