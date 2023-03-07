@@ -18,7 +18,7 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
     4.Update attributes of an object
     5.Destroy an object
     
-    Execution
+ Execution
  Your shell should work like this in interactive mode:
  
     $ ./console.py
