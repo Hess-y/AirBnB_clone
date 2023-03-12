@@ -13,7 +13,7 @@ class BaseModel:
     created_at = None
     updated_at = None
 
-    def __init__(self, *prmArgs, **prmKwArgs):
+    def __init__(self, *prmargs, **prmkwargs):
         """Initialization of a Base instance.
         Args:
             - *prmargs: list of arguments
