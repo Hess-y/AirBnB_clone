@@ -13,7 +13,7 @@ class BaseModel:
     created_at = None
     updated_at = None
 
-    def __init__(self, *prmargs, **prmkwargs):
+    def __init__(self, *prmargs, **kwargs):
         """Initialization of a Base instance.
         Args:
             - *prmargs: list of arguments
@@ -23,16 +23,16 @@ class BaseModel:
         self.updated_at = datetime.now()
         self.id = str(uuid.uuid4())
 
-        if prmkwargs is not None and kwargs != {}:
-            for key in prmkwargs:
+        if kwargs is not None and kwargs != {}:
+            for key in kwargs:
                 if key == "created_at":
                     self.__dict__["created_at"] = datetime.strptime(
-                        prmkwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                        kwargs["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == "updated_at":
                     self.__dict__["updated_at"] = datetime.strptime(
-                        prmkwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+                        kwargs["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
                 else:
-                    self.__dict__[key] = prmkwargs[key]
+                    self.__dict__[key] = kwargs[key]
 
                 storage.new(self)
 
