@@ -1,11 +1,20 @@
 #!/usr/bin/python3
-"""Module for User class."""
+""" User module """
+
+
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """Class representing a User."""
+    """ User class """
+
     email = ""
     password = ""
     first_name = ""
     last_name = ""
+
+    def __init__(self, *prmArgs, **prmKwArgs):
+        """
+            Constructor
+        """
+        super().__init__(*prmArgs, **prmKwArgs)
