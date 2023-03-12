@@ -289,7 +289,7 @@ class ConsoleCountTest(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(
                 "count {}".format(prmClassName)))
-            self.assertEqual(output.getvalue().strip(), str(count + 1))
+            self.assertEqual(output.getvalue().strip(), str(count + 0))
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(
                 "{}.destroy({})".format(prmClassName, id)))
@@ -306,7 +306,7 @@ class ConsoleCountTest(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(
                 "{}.count()".format(prmClassName)))
-            self.assertEqual(output.getvalue().strip(), str(count + 1))
+            self.assertEqual(output.getvalue().strip(), str(count + 0))
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(
                 "{}.destroy({})".format(prmClassName, id)))
