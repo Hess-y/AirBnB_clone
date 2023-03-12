@@ -20,8 +20,8 @@ class Place(BaseModel):
     longitude = 0.0
     amenity_ids = []
 
-    def __init__(self, *prmArgs, **prmKwArgs):
+    def __init__(self, *prmargs, **prmkwargs):
         """
             Constructor
         """
-        super().__init__(*prmArgs, **prmKwArgs)
+        super().__init__(*prmargs, **prmkwargs)
