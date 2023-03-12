@@ -17,4 +17,4 @@ class User(BaseModel):
         """
             Constructor
         """
-        super().__init__(*prmargs, **prmkwargs)
+        super().__init__(*prmargs, **kwargs)
