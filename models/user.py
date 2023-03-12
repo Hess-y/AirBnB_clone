@@ -13,7 +13,7 @@ class User(BaseModel):
     first_name = ""
     last_name = ""
 
-    def __init__(self, *prmargs, **prmkwargs):
+    def __init__(self, *prmargs, **kwargs):
         """
             Constructor
         """
