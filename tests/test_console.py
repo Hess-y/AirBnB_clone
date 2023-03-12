@@ -510,8 +510,8 @@ class ConsoleDestroyTest(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(command))
             self.assertNotIn(obj, storage.all())
 
-    #def __getObj(self, prmClassName: str, prmUuid: str):
-        #return storage.all()["{}.{}".format(prmClassName, prmUuid)]
+    def __getObj(self, prmClassName: str, prmUuid: str):
+        return storage.all()["{}.{}".format(prmClassName, prmUuid)]
 
 
 class ConsoleShowTest(unittest.TestCase):
