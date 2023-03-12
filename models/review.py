@@ -1,11 +1,19 @@
 #!/usr/bin/python3
-"""Module for Review class."""
+""" Review module """
+
 
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """Class representing a Review."""
+    """ Review class """
+
     place_id = ""
     user_id = ""
     text = ""
+
+    def __init__(self, *prmArgs, **prmKwArgs):
+        """
+            Constructor
+        """
+        super().__init__(*prmArgs, **prmKwArgs)
