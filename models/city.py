@@ -1,10 +1,18 @@
 #!/usr/bin/python3
-"""Module for City class."""
+""" City module """
+
 
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """Class representing a City."""
+    """ City class """
+
     state_id = ""
     name = ""
+
+    def __init__(self, *prmArgs, **prmKwArgs):
+        """
+            Constructor
+        """
+        super().__init__(*prmArgs, **prmKwArgs)
