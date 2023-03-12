@@ -1,9 +1,17 @@
 #!/usr/bin/python3
-"""Module for Amenity class."""
+""" Amenity module """
+
 
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """Class representing a Amenity."""
+    """ Amenity class """
+
     name = ""
+
+    def __init__(self, *prmArgs, **prmKwArgs):
+        """
+            Constructor
+        """
+        super().__init__(*prmArgs, **prmKwArgs)
