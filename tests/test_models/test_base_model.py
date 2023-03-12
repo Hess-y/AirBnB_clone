@@ -1,5 +1,3 @@
-s (85 sloc)  2.62 KB
-
 #!/usr/bin/python3
 """ BaseTest module """
 

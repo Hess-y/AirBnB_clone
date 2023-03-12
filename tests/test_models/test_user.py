@@ -1,5 +1,3 @@
-s (36 sloc)  1.05 KB
-
 #!/usr/bin/python3
 """ UserTest module """
 
