@@ -11,8 +11,8 @@ class City(BaseModel):
     state_id = ""
     name = ""
 
-    def __init__(self, *prmArgs, **prmKwArgs):
+    def __init__(self, *prmargs, **prmkwargs):
         """
             Constructor
         """
-        super().__init__(*prmArgs, **prmKwArgs)
+        super().__init__(*prmargs, **prmkwargs)
