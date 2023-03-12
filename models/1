@@ -36,16 +36,16 @@ class BaseModel:
 
                 storage.new(self)
 
-    def __str__(self):
+     def __str__(self):
         """Returns a human-readable string representation
         of an instance."""
-
+        
         return "[{}] ({}) {}".format(
             self.__class__.__name__,
             self.id, self.__dict__
         )
 
-    def save(self):
+     def save(self):
         """
             Function that updates the public instance attribute updated_at
             with the current datetime
