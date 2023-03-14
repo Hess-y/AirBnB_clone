@@ -38,7 +38,7 @@ class ConsoleHelpTest(unittest.TestCase):
             HBNBCommand().onecmd("help create")
             self.assertGreater(len(output.getvalue()), 0)
             self.assertEqual(output.getvalue(),
-            "Creates a new instance of BaseModel, \
+                             "Creates a new instance of BaseModel, \
 saves it (to the JSON file) and prints the id.\n\n")
 
     def testHelpAll(self):
@@ -49,7 +49,7 @@ saves it (to the JSON file) and prints the id.\n\n")
             HBNBCommand().onecmd("help all")
             self.assertGreater(len(output.getvalue()), 0)
             self.assertEqual(output.getvalue(),
-            "Prints all string representation of \
+                             "Prints all string representation of \
 all instances based or not on the class name.\n\n")
 
     def testHelpDestroy(self):
@@ -60,7 +60,7 @@ all instances based or not on the class name.\n\n")
             HBNBCommand().onecmd("help destroy")
             self.assertGreater(len(output.getvalue()), 0)
             self.assertEqual(output.getvalue(),
-            "Deletes an instance based on the \
+                             "Deletes an instance based on the \
 class name and id (save the change into the JSON file).\n\n")
 
     def testHelpUpdate(self):
@@ -71,7 +71,7 @@ class name and id (save the change into the JSON file).\n\n")
             HBNBCommand().onecmd("help update")
             self.assertGreater(len(output.getvalue()), 0)
             self.assertEqual(output.getvalue(),
-            "Updates an instance based on the \
+                             "Updates an instance based on the \
 class name and id by adding or updating attribute (save the \
 change into the JSON file).\n\n")
 
@@ -83,7 +83,7 @@ change into the JSON file).\n\n")
             HBNBCommand().onecmd("help show")
             self.assertGreater(len(output.getvalue()), 0)
             self.assertEqual(output.getvalue(),
-            "Prints the string representation of \
+                             "Prints the string representation of \
 an instance based on the class name and id.\n\n")
 
     def testHelpQuit(self):
@@ -114,7 +114,7 @@ an instance based on the class name and id.\n\n")
             HBNBCommand().onecmd("help count")
             self.assertGreater(len(output.getvalue()), 0)
             self.assertEqual(output.getvalue(),
-            "Update your command interpreter \
+                             "Update your command interpreter \
 (console.py) to retrieve the number of instances of a class.\
 \n\n")
 
