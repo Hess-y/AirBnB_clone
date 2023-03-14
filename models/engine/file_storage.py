@@ -55,3 +55,13 @@ class FileStorage:
                     FileStorage.__objects[key] = eval(className)(**value)
         except Exception:
             pass
+        
+    def test_reload(self):
+        """
+            Test that reload() method deserializes the JSON file to __objects
+        """
+        with patch('sys.stdout', new=StringIO()) as f:
+             HBNBCommand().onecmd("reload")
+             expected_output = "<class 'method'>\n"
+             expected_output += "reload\n"
+             self.assertEqual(f.getvalue(), expected_output)
