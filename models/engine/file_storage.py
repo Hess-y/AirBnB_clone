@@ -50,26 +50,12 @@ class FileStorage:
             from models.place import Place
             from models.review import Review
             with open(FileStorage.__file_path, 'r') as file:
+                json_dict = json.load(file)
                 for key, value in json.load(file).items():
                     className = value['__class__']
+                    module = __import__('models.' + class_name, fromlist=[class_name])
+                    class_ = getattr(module, class_name)
+                    instance = class_(**value)
                     FileStorage.__objects[key] = eval(className)(**value)
-        except Exception:
+        except FileNotFoundError:
             pass
-        
-    def reload(self):
-    """
-    deserializes the JSON file to __objects (only if the JSON file
-    (__file_path) exists ; otherwise, do nothing. If the file doesn’t
-    exist, no exception should be raised)
-    """
-    try:
-        with open(FileStorage.__file_path, 'r') as file:
-            json_dict = json.load(file)
-            for key, value in json_dict.items():
-                class_name = value['__class__']
-                module = __import__('models.' + class_name, fromlist=[class_name])
-                class_ = getattr(module, class_name)
-                instance = class_(**value)
-                FileStorage.__objects[key] = instance
-    except FileNotFoundError:
-        pass
