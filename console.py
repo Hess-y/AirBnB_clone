@@ -254,14 +254,14 @@ change into the JSON file).\n")
                         )
                         eval(formattedCommand)
                     return
-        except:
+        except ValueError as e:
             return super().default(line)
 
     def __getArgumentsFromLine(self, prmLine):
         """
             return argument from command line
         """
-        regex = "^(.*)\.(.*)\((.*)\)$"
+        regex = "^(.*)\\.(.*)\\((.*)\\)$"
         regex_prog = re.compile(regex)
         results = regex_prog.findall(prmLine)
         arguments = results[0]
@@ -284,13 +284,13 @@ change into the JSON file).\n")
             return parameter from argument
         """
         try:
-            regex = "^\"(.*)\"((,? ?)(\{.*\}))?$"
+            regex = "^\"(.*)\"((,? ?)(\\{.*\\}))?$"
             regex_prog = re.compile(regex)
             results = regex_prog.findall(prmArguments)
             parameters = results[0]
 
             return parameters[0], parameters[3]
-        except:
+        except ValueError as e:
             return '', ''
 
     def __checkValidArguments(self, prmLine: str) -> bool:
@@ -351,10 +351,10 @@ change into the JSON file).\n")
     def __type(self, prmStr: str):
         try:
             return int(prmStr)
-        except:
+        except ValueError as e:
             try:
                 return float(prmStr)
-            except:
+            except (ValueError, TypeError) as e:
                 return str(prmStr).replace('"', "").replace("'", "")
 
 
