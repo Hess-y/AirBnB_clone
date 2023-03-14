@@ -42,14 +42,16 @@ class FileStorage:
             exist, no exception should be raised)
         """
         try:
-           
+            from models.base_model import BaseModel
+            from models.user import User
+            from models.state import State
+            from models.city import City
+            from models.amenity import Amenity
+            from models.place import Place
+            from models.review import Review
             with open(FileStorage.__file_path, 'r') as file:
-                json_dict = json.load(file)
                 for key, value in json.load(file).items():
                     className = value['__class__']
-                    module = __import__('models.' + class_name, fromlist=[class_name])
-                    class_ = getattr(module, class_name)
-                    instance = class_(**value)
-                    FileStorage.__objects[key] = instance
-        except FileNotFoundError:
+                    FileStorage.__objects[key] = eval(className)(**value)
+        except Exception:
             pass
