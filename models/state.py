@@ -15,4 +15,3 @@ class State(BaseModel):
             Constructor
         """
         super().__init__(*prmargs, **prmkwargs)
-
