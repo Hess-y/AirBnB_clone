@@ -56,12 +56,20 @@ class FileStorage:
         except Exception:
             pass
         
-    def test_reload(self):
-        """
-            Test that reload() method deserializes the JSON file to __objects
-        """
-        with patch('sys.stdout', new=StringIO()) as f:
-             HBNBCommand().onecmd("reload")
-             expected_output = "<class 'method'>\n"
-             expected_output += "reload\n"
-             self.assertEqual(f.getvalue(), expected_output)
+    def reload(self):
+    """
+    deserializes the JSON file to __objects (only if the JSON file
+    (__file_path) exists ; otherwise, do nothing. If the file doesn’t
+    exist, no exception should be raised)
+    """
+    try:
+        with open(FileStorage.__file_path, 'r') as file:
+            json_dict = json.load(file)
+            for key, value in json_dict.items():
+                class_name = value['__class__']
+                module = __import__('models.' + class_name, fromlist=[class_name])
+                class_ = getattr(module, class_name)
+                instance = class_(**value)
+                FileStorage.__objects[key] = instance
+    except FileNotFoundError:
+        pass
