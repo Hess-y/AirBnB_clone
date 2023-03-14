@@ -43,9 +43,13 @@ class HBNBCommand(cmd.Cmd):
             if args[0] not in self.__classes:
                 raise ValueError("** class doesn't exist **")
 
-            instance = eval(args[0])()
+            # create new instance
+            new_instance = eval(args[0])()
+            # save the new instance
+            storage.new(new_instance)
             storage.save()
-            print(instance.id)
+            #print the new instance's id
+            print(new_instance.id)
         except Exception as exception:
             print(exception.args[0])
 
