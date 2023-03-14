@@ -56,6 +56,6 @@ class FileStorage:
                     module = __import__('models.' + class_name, fromlist=[class_name])
                     class_ = getattr(module, class_name)
                     instance = class_(**value)
-                    FileStorage.__objects[key] = eval(className)(**value)
+                    FileStorage.__objects[key] = instance
         except FileNotFoundError:
             pass
