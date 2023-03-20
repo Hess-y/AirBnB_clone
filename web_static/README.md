@@ -9,7 +9,9 @@ Before developing a big and complex web application, we will build the front end
 
 The first step is to “design” / “sketch” / “prototype” each element:
 
-Create simple HTML static pages
+ 
+ Create simple HTML static pages
+ 
  1.Style guide
  2.Fake contents
  3.No Javascript
